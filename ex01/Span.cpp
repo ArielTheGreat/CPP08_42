@@ -51,4 +51,11 @@ unsigned int Span::longestSpan()
 {
     if (_container.size() <= 2)
 		throw NotEnoughNumbers();
+
+    std::sort(_container.begin(), _container.end());
+
+    unsigned int maxElem = *std::max_element(_container.begin(), _container.end());
+    unsigned int minElem = *std::min_element(_container.begin(), _container.end());
+
+    return (maxElem - minElem);
 }
