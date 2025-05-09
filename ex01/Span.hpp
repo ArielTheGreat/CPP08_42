@@ -2,11 +2,13 @@
 #define SPAN_CPP
 
 #include <iostream>
+#include <vector>
 
 class Span
 {
     private:
-
+        std::vector<unsigned int> _container;
+        unsigned int _limitNumberSize;
     public:
         //Orthodox canonical form
         Span();
