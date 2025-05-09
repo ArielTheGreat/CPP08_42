@@ -44,8 +44,19 @@ void Span::addNumber(unsigned int begin, unsigned int end)
 }
 unsigned int Span::shortestSpan()
 {
+    unsigned int _shortestSpan = std::numeric_limits<unsigned int>::max();
     if (_container.size() <= 2)
 		throw NotEnoughNumbers();
+
+    std::sort(_container.begin(), _container.end());
+
+    for (unsigned int i = 1; i < _container.size(); i++)
+	{
+		unsigned int span = _container[i] - _container[i - 1];
+		if (span < _shortestSpan)
+            _shortestSpan = span;
+	}
+	return (_shortestSpan);
 }
 unsigned int Span::longestSpan()
 {
